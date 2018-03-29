@@ -45,6 +45,8 @@ extern double M_COORD[6];
 
 bool IsTreatMoving ;
 
+double correctdatafor360[6];//用于360平台的校正
+
 //int BeamNum;
 //CString BeamName[20];//束流名称
 //CString BeamTime[20];//束流应用时间
@@ -297,7 +299,6 @@ void CMainUI::OnBnClickedTreatmodebutton()
 		//translation.Offset[3] = M_COORD[3];
 		//translation.Offset[4] = M_COORD[4];
 		//translation.Offset[5] = M_COORD[5];
-
 }
 
 
@@ -643,16 +644,17 @@ void CMainUI::OnBnClickedCorrbutton()//做六维校正的操作
 			}
 		}
 		tab->GetDlgItemText(IDC_AZ360EDIT, str);
-		ForZAxisCorr[2] =_wtof( str.GetBuffer());
-
-		
+		ForZAxisCorr[2] =_wtof( str.GetBuffer());		
 		//trans.Correct3(FIXED_coordinate_value, vector);
 		//trans.init();
 		//trans.CorrectinTTS(Correctdata, vector);
 		translation.MatrixToSolve(TTS_coordinate_value,vector,0);
 
 		translation.CorrectionFor360Zaxis(ForZAxisCorr, sssForZAxisCorr);
-
+		for (size_t i = 0; i < 6; i++)
+		{
+			correctdatafor360[i] = sssForZAxisCorr[i];
+		}
 
 		//GetXYCORRData(vector);
 			
