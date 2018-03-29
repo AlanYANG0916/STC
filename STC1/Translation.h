@@ -696,42 +696,82 @@ public:
 	//对于360°旋转台与房间Z轴偏移的校正
 	void CorrectionFor360Zaxis(double input[6],double output[6])
 	{
-		//input为270°时xy方向的差值
-		double NUM[6];
-		for (size_t i = 0; i < 6; i++)
-		{
-			NUM[i] = input[i];
-		}
-		if (NUM[2]<0)
-		{
-			NUM[2] = -input[2];
-		}
-		else if (NUM[2]>0)
-		{
-			NUM[2]=360 - input[2];
-		}
-		//input[3] = 90;
-		double a = NUM[2] *π / 180;
-		double aa =input[2] * π / 180;
-		double aaa =( 180-input[2]) * π / 180;
-
-		if (input[2]<=0)
-		{
-		output[3] = -(input[3] * cos(a) - input[4] * sin(a) - input[3]) * cos(aaa) + -(input[3] * sin(a) + input[4] * cos(a) - input[4])*sin(aaa);
-		output[4] = -(input[3] * cos(a) - input[4] * sin(a) - input[3]) * sin(aaa) + -(input[3] * sin(a) + input[4] * cos(a) - input[4])*cos(aaa);
-		output[5] = 0;
-		}
-		else if (input[2]>0)
-		{
-			output[3] =((input[3] * cos(a) - input[4] * sin(a) - input[3])*cos(aa) + (input[3] * sin(a) + input[4] * cos(a) - input[4])*sin(aa));
-			output[4] = ((input[3] * cos(a) - input[4] * sin(a) - input[3])*sin(aa) + (input[3] * sin(a) + input[4] * cos(a) - input[4])*cos(aa));
-			output[5] = 0;
-		}
+		CString strFilePath;
+		CFile file;
 		
-
-		output[0] = 0;
-		output[1] = 0;
-		output[2] = 0;
+			strFilePath = L"./360Z_Axis_Corr.csv";
+		if (!file.Open(strFilePath, CFile::modeRead))
+			 {
+			return;
+			}
+		double correctdata2[36][3];
+		
+			CString result;
+		result = "";
+		char buffer[4096];
+		int row = -1;
+		int line = 0;
+		file.Read(buffer, file.GetLength());
+		
+			for (int i = 0; i<(file.GetLength()); i++)
+			 {
+			if (buffer[i] == 0x0A)//换行
+				 {
+				if (row != -1)
+					 {
+					correctdata2[row][line] = _wtof(result.GetBuffer());
+					row++;
+					result = L"";
+					line = -1;
+					}
+				else
+					 {
+					row = 0;
+					}
+				
+					}
+			else if (buffer[i] == 0x2C)//逗号
+				 {
+				if (row != -1)
+					 {
+					if (line == -1)
+						{
+						line = 0;
+						}
+					correctdata2[row][line] = _wtof(result.GetBuffer());
+					result = L"";
+					line++;
+					}
+				
+					}
+			else if (buffer[i] == 0x00)
+				 {
+				
+					}
+			else
+				 {
+				result += buffer[i];
+				}
+			}
+		for (size_t i = 0; i < 6; i++)
+			 {
+			output[i] = 0;
+			}
+		int nnn = 270 - (int)input[2];
+		if (nnn >= 360)
+			 {
+			nnn -= 360;
+			}
+		double a = input[2] * π / 180;
+		double MATIRC[3][3]; double QQ[3][1]; double QQQ[3][1];
+		MATIRC[0][0] = cos(-a); MATIRC[0][1] = sin(-a); MATIRC[0][2] = 0;
+		MATIRC[1][0] = -sin(-a); MATIRC[1][1] = cos(-a); MATIRC[1][2] = 0;
+		MATIRC[2][0] = 0; MATIRC[2][1] = 0; MATIRC[2][2] = 1;
+		
+			QQ[0][0] = correctdata2[nnn / 10][1]; QQ[0][1] = correctdata2[nnn / 10][2]; QQ[0][2] = 0;
+		Mul31(MATIRC, QQ, QQQ);
+		output[3] = -QQQ[0][0];
+		output[4] = -QQQ[0][1];
 	};
 
 	void ReCorrectionFor360Zaxis(double input[6], double output[6])

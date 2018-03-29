@@ -44,6 +44,7 @@ extern float single_move_speed_show[6];
 extern double M_COORD[6];
 
 bool IsTreatMoving ;
+double correctdatafor360[6];//用于360平台的校正
 
 //int BeamNum;
 //CString BeamName[20];//束流名称
@@ -652,7 +653,10 @@ void CMainUI::OnBnClickedCorrbutton()//做六维校正的操作
 		translation.MatrixToSolve(TTS_coordinate_value,vector,0);
 
 		translation.CorrectionFor360Zaxis(ForZAxisCorr, sssForZAxisCorr);
-
+		for (size_t i = 0; i < 6; i++)
+			 {
+			correctdatafor360[i] = sssForZAxisCorr[i];
+			}
 
 		//GetXYCORRData(vector);
 			
