@@ -78,7 +78,6 @@ extern CString UserName;
 extern double M_COORD[6];
 extern bool IsTreatMoving;//是否处于治疗状态运动
 int DoingTreatMoving;//是否正在运动处于治疗状态运动
-extern double correctdatafor360[6];//用于360平台的校正
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
 
 class CAboutDlg : public CDialogEx
@@ -1904,12 +1903,12 @@ void CSTC1Dlg::RealAgleRealTime()
 	}
 	GetRealData(re_attitude_for_show);//校正差值
 	//将数值显示
-	str.Format(L"%.1f", re_attitude_for_show[0]); this->SetDlgItemTextW(IDC_RXEDIT, str); m_cali.SetDlgItemTextW(IDC_RXEDIT3, str);
-	str.Format(L"%.1f", re_attitude_for_show[1]); this->SetDlgItemTextW(IDC_RYEDIT, str); m_cali.SetDlgItemTextW(IDC_RYEDIT3, str);
-	str.Format(L"%.1f", re_attitude_for_show[2]); this->SetDlgItemTextW(IDC_RZEDIT, str); m_cali.SetDlgItemTextW(IDC_RZEDIT3, str);
-	str.Format(L"%.1f", re_attitude_for_show[3]); this->SetDlgItemTextW(IDC_RAXEDIT, str); m_cali.SetDlgItemTextW(IDC_RAXEDIT3, str);
-	str.Format(L"%.1f", re_attitude_for_show[4]); this->SetDlgItemTextW(IDC_RAYEDIT, str); m_cali.SetDlgItemTextW(IDC_RAYEDIT3, str);
-	str.Format(L"%.1f", re_attitude_for_show[5]); this->SetDlgItemTextW(IDC_RAZEDIT, str); m_cali.SetDlgItemTextW(IDC_RAZEDIT3, str);
+	str.Format(L"%.2f", re_attitude_for_show[0]); this->SetDlgItemTextW(IDC_RXEDIT, str); m_cali.SetDlgItemTextW(IDC_RXEDIT3, str);
+	str.Format(L"%.2f", re_attitude_for_show[1]); this->SetDlgItemTextW(IDC_RYEDIT, str); m_cali.SetDlgItemTextW(IDC_RYEDIT3, str);
+	str.Format(L"%.2f", re_attitude_for_show[2]); this->SetDlgItemTextW(IDC_RZEDIT, str); m_cali.SetDlgItemTextW(IDC_RZEDIT3, str);
+	str.Format(L"%.2f", re_attitude_for_show[3]); this->SetDlgItemTextW(IDC_RAXEDIT, str); m_cali.SetDlgItemTextW(IDC_RAXEDIT3, str);
+	str.Format(L"%.2f", re_attitude_for_show[4]); this->SetDlgItemTextW(IDC_RAYEDIT, str); m_cali.SetDlgItemTextW(IDC_RAYEDIT3, str);
+	str.Format(L"%.2f", re_attitude_for_show[5]); this->SetDlgItemTextW(IDC_RAZEDIT, str); m_cali.SetDlgItemTextW(IDC_RAZEDIT3, str);
 	m_cali.SetDlgItemTextW(IDC_RAZ360EDIT2, m_hShiJiJiaoDu);//IDC_RAZ360EDIT3
 
 	//z轴偏移的反解码
@@ -1937,12 +1936,7 @@ void CSTC1Dlg::RealAgleRealTime()
 	szKeyValue.ReleaseBuffer();
 	if (ChairMode==TreatmentMode)
 	{
-		for (size_t i = 0; i < 6; i++)
-		{
-			reoffset[i] = correctdatafor360[i];
-		}
-
-		//translation.CorrectionFor360Zaxis(offset, reoffset);
+		translation.CorrectionFor360Zaxis(offset, reoffset);
 	}
 
 	double vector2[6];
@@ -2104,13 +2098,6 @@ CString  CSTC1Dlg::ToLdata(CString Pdata)
 void CSTC1Dlg::ActionTip()
 {
 	JudgeAction();
-	if (ChairMode!=TreatmentMode)
-	{
-		for (size_t i = 0; i < 6; i++)
-		{
-			IfMoveInPlace[i] = 1;
-		}
-	}
 	if (::GetKeyState(VK_CONTROL) < 0)//按下
 	{
 		//AfxMessageBox(L"Ctrl 键按下了。");
