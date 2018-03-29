@@ -1,0 +1,26 @@
+Connector->Property[_T("EndPointURL")] = _T("http://ws.webxml.com.cn//webservices/qqOnlineWebService.asmx");    //wsdl路径  
+	Connector->Connect();
+
+	////   Begin  the   message.  //消息体  
+	Connector->Property[_T("SoapAction")] = _T("http://WebXml.com.cn/qqCheckOnline");//函数体参数  
+	Connector->BeginMessage();
+
+
+	Serializer.CreateInstance(__uuidof(SoapSerializer30));
+	Serializer->Init(_variant_t((IUnknown*)Connector->InputStream));
+
+	//   Build  the   SOAP   Message.  
+	//Serializer->StartHeader();
+	Serializer->StartEnvelope(_T("Soap"), _T("http://schemas.xmlsoap.org/soap/envelope/"), _T("utf-8"));
+	Serializer->StartBody("");
+	Serializer->StartElement(_T("qqCheckOnline"), _T("http://WebXml.com.cn/"), _T("utf-8"), _T("Soap"));//函数处理
+		Serializer->StartElement(_T("qqCode"), _T(""), _T(""), _T("Soap"));
+			Serializer->WriteString("978816855");          //参数处理        
+		Serializer->EndElement();
+		Serializer->StartElement(_T("userID"), _T(""), _T(""), _T("Soap"));
+			Serializer->WriteString("");          //参数处理        
+		Serializer->EndElement();
+	Serializer->EndElement();
+	Serializer->EndBody();
+	Serializer->EndEnvelope();
+	Connector->EndMessage();

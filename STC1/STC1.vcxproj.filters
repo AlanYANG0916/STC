@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="STC1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="STC1Dlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Cali.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Corr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MainUI.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DOFComm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PC2PC.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SixDof.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorButton.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Translate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Translation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Login.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="QAIntPutDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mysql.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="hpdf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginSetPass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AddPatient.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ADDPLAN.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ADDUSER.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="STC1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="STC1Dlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Cali.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Corr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MainUI.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DOFComm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="PC2PC.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorButton.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Login.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="QAIntPutDlg.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginSetPass.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AddPatient.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ADDPLAN.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ADDUSER.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="STC1.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\STC1.rc2">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\STC1.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\三角按钮2.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\ARW04DN.ICO">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\ARW04UP.ICO">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\icon3.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\ARW04DN2.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\ARW04UP2.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\504.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Red_LED_Off.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Red_LED_On.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Send.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\logo.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\button.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\button01.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\icon8.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\ooopic_1516957094.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\ooopic_1516957105.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\ooopic_1516957472.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\ooopic_1517030888.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\ooopic_1517032201.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\ooopic_1517033452.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\ooopic_1517033549.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\down_arrow_128px_1209033_easyicon.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\icon12.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\icon14.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\ooopic_1517231931.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,8 @@
+LIBRARY MATRICDIV
+EXPORTS
+MATRICDIVInitialize
+MATRICDIVInitializeWithHandlers
+MATRICDIVTerminate
+MATRICDIVPrintStackTrace
+mlxMatricdiv
+
