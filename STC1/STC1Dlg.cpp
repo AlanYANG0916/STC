@@ -2766,3 +2766,5 @@ void CSTC1Dlg::OnBnClickedmovebeginbutton()
 		SetTimer(2, 100, NULL);
 	}
 }
+
+//test
